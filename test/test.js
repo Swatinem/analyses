@@ -1,7 +1,0 @@
-
-var  = require('../');
-
-describe('', function () {
-
-});
-
