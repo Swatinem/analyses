@@ -4,17 +4,16 @@
   "version": "0.0.1",
   "keywords": ["DFA", "data flow analysis", "esprima"],
   "main": "./index",
-  "bin": {
-    "analyses": "./bin/analyses.js"
-  },
   "maintainers": [
     "Arpad Borsos <arpad.borsos@googlemail.com> (http://swatinem.de)"
   ],
   "dependencies": {
-    "esprima": "~ 1.0",
-    "esgraph": "~ 0.1.0",
     "walkes": "~ 0.1.0",
     "es6-shim": "~ 0.7.0"
+  },
+  "peerDependencies": {
+    "esprima": "~ 1.0",
+    "esgraph": "~ 0.1.0"
   },
   "devDependencies": {
     "mocha": "*",
