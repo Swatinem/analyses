@@ -77,4 +77,36 @@ describe('Set', function () {
 		m.size.should.eql(1);
 		m.has('a').should.be.false;
 	});
+	it('should support some Array.prototype methods', function () {
+		var s = new Set(['e']);
+		var called = 0;
+		s.forEach(function (e) {
+			called++;
+			e.should.eql('e');
+		});
+		s.map(function (e) {
+			called++;
+			e.should.eql('e');
+			return true;
+		}).should.eql([true]);
+		called.should.eql(2);
+		s = new Set(['a', 'b']);
+		s.some(function (e) {
+			called++;
+			return e == 'a';
+		}).should.be.true;
+		s.every(function (e) {
+			called++;
+			return e == 'a';
+		}).should.be.false;
+		s.some(function (e) {
+			called++;
+			return false;
+		}).should.be.false;
+		s.every(function (e) {
+			called++;
+			return true;
+		}).should.be.true;
+		called.should.eql(9);
+	});
 });

@@ -1,7 +1,7 @@
 {
   "name": "analyses",
   "description": "basic data flow analyses framework based on esprima",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["DFA", "data flow analysis", "esprima"],
   "main": "./index",
   "maintainers": [
