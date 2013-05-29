@@ -22,6 +22,10 @@ describe('Set', function () {
 		s.delete('a');
 		s.size.should.eql(0);
 	});
+	it('should support .first()', function () {
+		var s = new Set(['a', 'b']);
+		s.first().should.eql('a');
+	});
 	it('should support equals', function () {
 		var aobj = {};
 		var bobj = {};

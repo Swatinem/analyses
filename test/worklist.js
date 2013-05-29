@@ -28,6 +28,16 @@ describe('Worklist algorithm', function () {
 		});
 		(called >= 2).should.be.ok;
 	});
+	it('should support a starting value', function () {
+		var called = 0;
+		worklist(cfg, function (input) {
+			called++;
+			if (called == 1)
+				Set.equals(input, new Set(['a'])).should.be.ok;
+			return input;
+		}, {start: new Set(['a'])});
+		(called >= 2).should.be.ok;
+	});
 	it('should support backwards iteration', function () {
 		var called = 0;
 		worklist(cfg, function (input) {
@@ -86,6 +96,22 @@ describe('Worklist algorithm', function () {
 		}});
 		called.should.eql(3);
 		calledeq.should.eql(1);
+	});
+	it('should also give the list and the last output', function () {
+		var called = 0;
+		// create a cycle:
+		n1.prev.push(n2);
+		n2.next.push(n1);
+		worklist(cfg, function (input, list, output) {
+			called++;
+			list.should.be.an.instanceof(worklist.Queue);
+			if (called == 3)
+				Set.equals(output, new Set(['a']));
+			if (this == n1)
+				return new Set(['a']);
+			return input;
+		});
+		called.should.eql(3);
 	});
 });
 
