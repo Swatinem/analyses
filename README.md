@@ -28,7 +28,9 @@ var output = analyses(cfg, function (input, list) {
 	direction: 'forward',
 	// custom merge function:
 	// typically union or intersect; defaults to union
-	merge: analyses.Set.union,
+	// merge function takes an array of inputs
+	// `analyses.merge()` wraps a function which takes a pair `a, b` of inputs
+	merge: analyses.merge(analyses.Set.union),
 	// custom equals function:
 	// this is used to determine if the output of a node still changes and to
 	// not enqueue any more successors and stop the iteration; defaults to

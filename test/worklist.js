@@ -75,9 +75,9 @@ describe('Worklist algorithm', function () {
 		var out = new Set('a');
 		worklist(cfg, function (input) {
 			return out;
-		}, {merge: function (a, b) {
+		}, {merge: function (inputs) {
 			called++;
-			b.should.eql(out);
+			inputs[0].should.eql(out);
 		}});
 		(called >= 1).should.be.ok;
 	});

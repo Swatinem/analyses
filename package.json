@@ -1,15 +1,14 @@
 {
   "name": "analyses",
   "description": "basic data flow analyses framework based on esprima",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": ["DFA", "data flow analysis", "esprima"],
   "main": "./index",
   "maintainers": [
     "Arpad Borsos <arpad.borsos@googlemail.com> (http://swatinem.de)"
   ],
   "dependencies": {
-    "walkes": "~ 0.1.0",
-    "es6-shim": "~ 0.7.0"
+    "walkes": "~ 0.1.0"
   },
   "peerDependencies": {
     "esprima": "~ 1.0",
@@ -25,7 +24,7 @@
     "mocha-lcov-reporter": "*"
   },
   "scripts": {
-    "test": "make test-coveralls"
+    "test": "make test && make test-coveralls"
   },
   "repository": "git://github.com/Swatinem/analyses-ng.git",
   "license": "LGPLv3"
