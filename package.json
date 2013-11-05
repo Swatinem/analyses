@@ -26,6 +26,6 @@
   "scripts": {
     "test": "make test && make test-coveralls"
   },
-  "repository": "git://github.com/Swatinem/analyses-ng.git",
+  "repository": "git://github.com/Swatinem/analyses.git",
   "license": "LGPLv3"
 }

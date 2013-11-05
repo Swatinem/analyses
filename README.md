@@ -10,6 +10,18 @@ Basic data flow analyses framework based on esprima
 
     $ npm install analyses
 
+## Dependencies
+
+analyses depends on a globally available `Map`, which can either be provided by
+running with `--harmony` or by preloading a shim before using the library.
+analyses itself explicitly does not depend on a shim itself, to be more forward
+compatible and to give you more choice.
+
+Since the collections, specifically `Set` in `--harmony`
+[do not support any method to iterate over them](https://code.google.com/p/v8/issues/detail?id=2323),
+analyses provides a minimal `analyses.Set` shim with some useful set operations.
+This will change once native `--harmony` Sets are actually useful.
+
 ## Usage
 
 ```js
@@ -37,6 +49,8 @@ var output = analyses(cfg, function (input, list) {
 	// Set.equals
 	equals: analyses.Set.equals
 });
+// the output is a `Map` from CFG nodes to a result set of type `analyses.Set`
+output.get(cfg[0]).values()
 ```
 
 ## License
