@@ -1,3 +1,5 @@
-module.exports = process.env.ANALYSES_COV
-  ? require('./lib-cov')
-  : require('./lib');
+/* vim: set shiftwidth=2 tabstop=2 noexpandtab textwidth=80 wrap : */
+"use strict";
+
+module.exports = require('./lib');
+
