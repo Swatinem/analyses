@@ -33,7 +33,7 @@ function expr(code) {
 describe('Available Expressions', function () {
 	it('should work for basic example', function () {
 		var actual = doAnalysis('var a = b + c; var c = a + b;');
-		actual.should.includeEql(expr('a + b'));
+		actual.should.containEql(expr('a + b'));
 	});
 	it('should work for loops', function () {
 		var actual = doAnalysis(
@@ -42,8 +42,8 @@ describe('Available Expressions', function () {
 				'a = a + 1; x = a + b;' +
 			'} expr;'
 		);
-		actual.should.includeEql(expr('a + b'));
-		actual.should.includeEql(expr('y > a + b'));
+		actual.should.containEql(expr('a + b'));
+		actual.should.containEql(expr('y > a + b'));
 	});
 	it('should work for branches', function () {
 		var actual = doAnalysis(
@@ -55,7 +55,7 @@ describe('Available Expressions', function () {
 				'y = a + c;' +
 			'} expr;'
 		);
-		actual.should.includeEql(expr('a + b'));
+		actual.should.containEql(expr('a + b'));
 	});
 });
 
