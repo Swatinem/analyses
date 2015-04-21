@@ -11,11 +11,11 @@
     "walkes": "~ 0.2.0"
   },
   "peerDependencies": {
-    "esprima": "~ 1.0",
+    "esprima": "^1",
     "esgraph": "~ 0.1.1"
   },
   "devDependencies": {
-    "esprima": "~ 1.0",
+    "esprima": "^1",
     "esgraph": "~ 0.1.1",
     "istanbul": "*",
     "mocha": "*",
